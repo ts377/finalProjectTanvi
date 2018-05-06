@@ -19,6 +19,7 @@
                                     <span class="invalid-feedback">
                                         <strong>first('fname', '<p class="help-block">:message</p>')</strong>
                                     </span>
+                                @endif
                         </div>
                         <div class="form-group {{ $errors->has('lname') ? 'has-error' : ''}}">
                             {!! Form::label('lname', 'Last Name') !!}
