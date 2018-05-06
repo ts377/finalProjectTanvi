@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Profile;
 use App\User;
+use App\Http\Requests\ProfileFormRequest;
 
 class ProfileController extends Controller
 {
@@ -37,17 +38,12 @@ class ProfileController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(ProfileFormRequest $request)
     {
-        $input = $request->validate([
-            'fname' => 'required',
-            'lname' => 'required',
-            'body' => 'required',
-        ], [
-
-            'fname.required' => ' First is required',
-            'lname.required' => ' Last is required',
-            'body.required' => ' Body is required',
+        Profile::create([
+            'fname' => $request->get('fname'),
+            'lname'=> $request->get('lname'),
+            'body' => $request->get('body')
         ]);
         $input = request()->all();
 
