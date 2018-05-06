@@ -15,7 +15,10 @@
                             <div class="form-group {{ $errors->has('fname') ? 'has-error' : ''}}">
                             {!! Form::label('fname', 'First Name') !!}
                             {!! Form::text('fname',null, $profile->fname, ['class' => 'form-control','required' => 'required']) !!}
-                                {!! $errors->first('fname', '<p class="help-block">:message</p>') !!}
+                                @if ($errors->has('fname'))
+                                    <span class="invalid-feedback">
+                                        <strong>first('fname', '<p class="help-block">:message</p>')</strong>
+                                    </span>
                         </div>
                         <div class="form-group {{ $errors->has('lname') ? 'has-error' : ''}}">
                             {!! Form::label('lname', 'Last Name') !!}
