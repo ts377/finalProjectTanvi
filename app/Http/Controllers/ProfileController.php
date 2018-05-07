@@ -91,15 +91,17 @@ class ProfileController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request,  $user, $profile)
+    public function update(ProfileFormRequest $request,  $user, $profile)
     {
         $input = $request->validate([
             'fname' => 'required',
             'lname' => 'required',
+            'body' => 'required',
         ], [
 
             'fname.required' => ' First is required',
             'lname.required' => ' Last is required',
+            'body.required' => ' Body is required'
 
         ]);
         $profile = Profile::find($profile);

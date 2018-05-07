@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Question;
 use Illuminate\Support\Facades\Auth;
+use App\Http\Requests\QuestionFormRequest;
+
 
 class QuestionController extends Controller
 {
@@ -42,14 +44,14 @@ class QuestionController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(QuestionFormRequest $request)
     {
         $input = $request->validate([
-            'body' => 'required|min:5',
+            'body' => 'required',
         ], [
 
             'body.required' => 'Body is required',
-            'body.min' => 'Body must be at least 5 characters',
+
 
         ]);
         $input = request()->all();
@@ -97,15 +99,15 @@ class QuestionController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Question $question)
+    public function update(QuestionFormRequest $request, Question $question)
     {
 
         $input = $request->validate([
-            'body' => 'required|min:5',
+            'body' => 'required',
         ], [
 
             'body.required' => 'Body is required',
-            'body.min' => 'Body must be at least 5 characters',
+
 
         ]);
 

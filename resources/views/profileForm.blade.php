@@ -12,23 +12,17 @@
                         @else()
                             {!! Form::model($profile, ['route' => ['profile.update', Auth::user()->id, $profile->id], 'method' => 'patch']) !!}
                         @endif
-                            <div class="form-group {{ $errors->has('fname') ? 'has-error' : ''}}">
+                        <div class="form-group">
                             {!! Form::label('fname', 'First Name') !!}
-                            {!! Form::text('fname',null, $profile->fname, ['class' => 'form-control','required' => 'required']) !!}
-                                @if ($errors->has('fname'))
-                                    <span class="invalid-feedback">
-                                        <strong>first('fname', '<p class="help-block">:message</p>')</strong>
-                                    </span>
-                                @endif
+                            {!! Form::text('fname', $profile->fname, ['class' => 'form-control','required' => 'required']) !!}
                         </div>
-                        <div class="form-group {{ $errors->has('lname') ? 'has-error' : ''}}">
+                        <div class="form-group">
                             {!! Form::label('lname', 'Last Name') !!}
-                            {!! Form::text('lname',null, $profile->lname, ['class' => 'form-control','required' => 'required']) !!}
-                            {!! $errors->first('fname', '<p class="help-block">:message</p>') !!}
+                            {!! Form::text('lname', $profile->lname, ['class' => 'form-control','required' => 'required']) !!}
                         </div>
                         <div class="form-group">
                             {!! Form::label('body', 'Body') !!}
-                            {!! Form::text('body', $profile->body, ['class' => 'form-control']) !!}
+                            {!! Form::text('body', $profile->body, ['class' => 'form-control','required' => 'required']) !!}
                         </div>
                         <button class="btn btn-success float-right" value="submit" type="submit" id="submit">Save
                         </button>

@@ -5,10 +5,9 @@ namespace Tests\Browser;
 use Tests\DuskTestCase;
 use Laravel\Dusk\Browser;
 use Illuminate\Foundation\Testing\DatabaseMigrations;
-use Tests\Browser\Pages\LoginTaskPage;
+use Tests\Browser\Pages\RegisterTaskPage;
 
-
-class LoginTest extends DuskTestCase
+class RegisterTest extends DuskTestCase
 {
     /**
      * A Dusk test example.
@@ -20,10 +19,11 @@ class LoginTest extends DuskTestCase
         $this->browse(function (Browser $browser) {
 
 
-            $browser->visit(new LoginTaskPage)
-                ->type('email', 'tanvi51@laravel.com')
+            $browser->visit(new RegisterTaskPage)
+                ->type('email', 'tanvi53@laravel.com')
                 ->type('password', 'secret')
-                ->Click('@element1')
+                ->type('password_confirmation', 'secret')
+                ->Click('@element')
                 ->pause(5000)
                 ->assertPathIs('/home');
 

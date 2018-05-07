@@ -7,7 +7,7 @@ use Laravel\Dusk\Browser;
 use Illuminate\Foundation\Testing\DatabaseMigrations;
 use App\User;
 
-class LoginUserTest extends DuskTestCase
+class CreateUserTest extends DuskTestCase
 {
     /**
      * A Dusk test example.
@@ -18,7 +18,7 @@ class LoginUserTest extends DuskTestCase
     {
 
         $user = factory(User::class)->create([
-            'email' => 'ahana54@laravel.com',
+            'email' => 'ahana55@laravel.com',
         ]);
 
         $this->browse(function ($browser) use ($user) {
